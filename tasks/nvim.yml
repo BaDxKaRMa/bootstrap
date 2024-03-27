@@ -1,0 +1,13 @@
+---
+- name: Install neovim on Ubuntu
+  become: yes
+  apt:
+    name:
+      - neovim
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install neovim on MacOX
+  community.general.homebrew:
+    name:
+      - neovim
+  when: ansible_distribution == "MacOSX"

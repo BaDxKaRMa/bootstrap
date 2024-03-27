@@ -1,13 +1,17 @@
 ---
-- name: Install gobuster on Ubuntu
+- name: Install CTF tools on Ubuntu
   become: yes
   apt:
     name:
       - gobuster
+      - nikto
+      - hashcat
   when: ansible_distribution == "Ubuntu"
 
-- name: Install gobuster on MacOSX
+- name: Install CTF tools on MacOSX
   community.general.homebrew:
     name:
       - gobuster
+      - nikto
+      - hashcat
   when: ansible_distribution == "MacOSX"

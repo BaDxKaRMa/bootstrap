@@ -1,0 +1,29 @@
+---
+- name: Install CTF tools on Ubuntu
+  become: yes
+  apt:
+    name: "{{ item }}"
+  loop:
+    - gobuster
+    - nikto
+    - hashcat
+  when: ansible_distribution == "Ubuntu"
+  register: result
+  changed_when: result is changed
+  loop_control:
+    label: "{{ item }} installed"
+    verbosity: 1
+
+- name: Install CTF tools on MacOSX
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop:
+    - gobuster
+    - nikto
+    - hashcat
+  when: ansible_distribution == "MacOSX"
+  register: result
+  changed_when: result is changed
+  loop_control:
+    label: "{{ item }} installed"
+    verbosity: 1

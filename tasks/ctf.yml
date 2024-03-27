@@ -11,8 +11,11 @@
   register: result
   changed_when: result is changed
   loop_control:
-    label: "{{ item }} installed"
-    verbosity: 1
+    label: "{{ item }}"
+  post_tasks:
+    - debug:
+        msg: "{{ item }} installed"
+      when: result is changed
 
 - name: Install CTF tools on MacOSX
   community.general.homebrew:
@@ -25,5 +28,8 @@
   register: result
   changed_when: result is changed
   loop_control:
-    label: "{{ item }} installed"
-    verbosity: 1
+    label: "{{ item }}"
+  post_tasks:
+    - debug:
+        msg: "{{ item }} installed"
+      when: result is changed

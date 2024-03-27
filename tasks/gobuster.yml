@@ -1,0 +1,13 @@
+---
+- name: Install gobuster on Ubuntu
+  become: yes
+  apt:
+    name:
+      - gobuster
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install gobuster on MacOSX
+  community.general.homebrew:
+    name:
+      - gobuster
+  when: ansible_distribution == "MacOSX"

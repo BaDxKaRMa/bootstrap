@@ -3,7 +3,20 @@
   hosts: localhost
   connection: local
 
+  pre_tasks:
+    - name: Display Specific Ansible Facts
+      debug:
+        msg:
+          - "OS Family: {{ ansible_facts['os_family'] }}"
+          - "Distribution: {{ansible_facts['distribution']}}"
+          - "User ID: {{ ansible_facts['user_id'] }}"
+          - "Shell: {{ ansible_facts['user_shell'] }}"
+      tags: always
+
   tasks:
     - name: Neovim
       tags: nvim
       import_tasks: tasks/nvim.yml
+    - name: Gobuster
+      tags: [gobuster, ctf]
+      import_tasks: tasks/gobuster.yml

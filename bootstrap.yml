@@ -17,6 +17,6 @@
     - name: Neovim
       tags: nvim
       import_tasks: tasks/nvim.yml
-    - name: Gobuster
-      tags: [gobuster, ctf]
-      import_tasks: tasks/gobuster.yml
+    - name: CTF
+      tags: ctf
+      import_tasks: tasks/ctf.yml

@@ -1,0 +1,10 @@
+---
+- name: Bootstrap environment
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Neovim
+      tags: nvim
+      import_role:
+        name: nvim

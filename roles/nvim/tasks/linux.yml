@@ -1,0 +1,6 @@
+---
+- name: Install nvim build dependencies in Ubuntu
+  become: true
+  apt:
+    name:
+      - neovim

@@ -1,6 +1,0 @@
----
-- name: Install nvim stable in macOS
-  community.general.homebrew:
-    name:
-      - neovim
-    state: present

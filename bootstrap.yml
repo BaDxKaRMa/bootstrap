@@ -6,5 +6,4 @@
   tasks:
     - name: Neovim
       tags: nvim
-      import_role:
-        name: nvim
+      import_tasks: tasks/nvim.yml

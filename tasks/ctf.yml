@@ -8,14 +8,6 @@
     - nikto
     - hashcat
   when: ansible_distribution == "Ubuntu"
-  register: result
-  changed_when: result is changed
-  loop_control:
-    label: "{{ item }}"
-  post_tasks:
-    - debug:
-        msg: "{{ item }} installed"
-      when: result is changed
 
 - name: Install CTF tools on MacOSX
   community.general.homebrew:
@@ -25,11 +17,3 @@
     - nikto
     - hashcat
   when: ansible_distribution == "MacOSX"
-  register: result
-  changed_when: result is changed
-  loop_control:
-    label: "{{ item }}"
-  post_tasks:
-    - debug:
-        msg: "{{ item }} installed"
-      when: result is changed

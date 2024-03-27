@@ -7,6 +7,7 @@ Linux Example
 
 ```bash
 # ensure git and ansible are installed
+ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 apt update -y && apt install git ansible -y
 
 # bootstrap

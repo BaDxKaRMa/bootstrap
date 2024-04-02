@@ -1,19 +1,33 @@
 ---
+- name: Define CTF tools
+  set_fact:
+    ctf_tools:
+      - gobuster
+      - nikto
+      - hashcat
+      - hydra
+      - nmap
+      - wpscan
+      - sqlmap
+      - shodan
+      - pwncat
+      - openvpn
+      - masscan
+      - exploitdb
+      - aircrack-ng
+      - bettercap
+      - wireshark
+      - metasploit
+
 - name: Install CTF tools on Ubuntu
-  become: yes
+  become: true
   apt:
     name: "{{ item }}"
-  loop:
-    - gobuster
-    - nikto
-    - hashcat
+  loop: "{{ ctf_tools }}"
   when: ansible_distribution == "Ubuntu"
 
 - name: Install CTF tools on MacOSX
   community.general.homebrew:
     name: "{{ item }}"
-  loop:
-    - gobuster
-    - nikto
-    - hashcat
+  loop: "{{ ctf_tools }}"
   when: ansible_distribution == "MacOSX"

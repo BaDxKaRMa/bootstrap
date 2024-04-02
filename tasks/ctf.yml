@@ -7,16 +7,17 @@
       - hashcat
       - hydra
       - nmap
-      - wpscan
       - sqlmap
-      - shodan
-      - pwncat
       - openvpn
       - masscan
-      - exploitdb
       - aircrack-ng
       - bettercap
       - wireshark
+    mac_only:
+      - wpscan
+      - shodan
+      - pwncat
+      - exploitdb
       - metasploit
 
 - name: Install CTF tools on Ubuntu
@@ -29,5 +30,5 @@
 - name: Install CTF tools on MacOSX
   community.general.homebrew:
     name: "{{ item }}"
-  loop: "{{ ctf_tools }}"
+  loop: "{{ ctf_tools + mac_only }}"
   when: ansible_distribution == "MacOSX"

@@ -47,3 +47,22 @@
     repo: "https://github.com/zsh-users/zsh-completions"
     dest: ~/.config/zsh/plugins/zsh-completions
 
+- name: Install zsh-autosuggestions omz plugin
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/zsh-autosuggestions"
+    dest: ~/.config/zsh/plugins/zsh-autosuggestions
+
+- name: Install zsh-autoswitch virtualenv omz plugin
+  ansible.builtin.git:
+    repo: "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git"
+    dest: ~/.config/zsh/plugins/autoswitch_virtualenv
+
+- name: Install zsh-syntaxhighlighting omz plugin
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    dest: ~/.config/zsh/plugins/zsh-syntax-highlighting
+
+- name: Install autoupdate omz plugin
+  ansible.builtin.git:
+    repo: "https://github.com/TamCore/autoupdate-oh-my-zsh-plugins"
+    dest: ~/.config/zsh/plugins/autoupdate

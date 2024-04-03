@@ -1,0 +1,27 @@
+---
+- name: Dotfiles - Ensure Git is installed
+  package:
+    name: git
+    state: present
+
+- name: Dotfiles - Get home directory
+  user:
+    name: "{{ ansible_user_id }}"
+    state: present
+  register: dotfiles_user_registered
+
+- name: Dotfiles - Check if directory exists
+  stat:
+    path: "{{ ansible_user_id }}"
+  register: repo_directory
+
+- name: Dotfiles - Clone repository
+  command: "git clone --separate-git-dir=$HOME/.dotfiles git@github.com:BaDxKaRMa/.dotfiles.git ~"
+  become: yes
+  become_user: "{{ ansible_user_id }}"
+  when: not repo_directory.stat.exists
+
+- name: Dotfiles - Disable showing untracked files
+  command: "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no"
+  become: yes
+  become_user: "{{ ansible_user_id }}"

@@ -14,6 +14,10 @@
       tags: always
 
   tasks:
+    - name: dotfiles
+      tags: always
+      import_tasks: tasks/dotfiles.yml
+
     - name: ZSH
       tags: always
       import_tasks: tasks/zsh.yml
@@ -29,3 +33,4 @@
     - name: Packages
       tags: always
       import_tasks: tasks/packages.yml
+

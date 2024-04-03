@@ -74,6 +74,9 @@
       - pinentry-mac
       - fsouza/prettierd/prettierd
       - 1password
+      - iterm2
+      - font-monaspace-nerd-font
+      - postman
       - copyq
       - keka
       - obsidian

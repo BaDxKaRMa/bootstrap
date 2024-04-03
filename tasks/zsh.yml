@@ -66,3 +66,8 @@
   ansible.builtin.git:
     repo: "https://github.com/TamCore/autoupdate-oh-my-zsh-plugins"
     dest: ~/.config/zsh/plugins/autoupdate
+
+- name: Install omz theme Powerline10k
+  ansible.builtin.git:
+    repo: "https://github.com/romkatv/powerlevel10k.git"
+    dest: ~/.config/zsh/themes/powerlevel10k

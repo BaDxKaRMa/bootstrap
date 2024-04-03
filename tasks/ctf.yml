@@ -13,6 +13,8 @@
       - aircrack-ng
       - bettercap
       - wireshark
+      - john-jumbo
+      - reaver
     mac_only:
       - wpscan
       - shodan

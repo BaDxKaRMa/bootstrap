@@ -25,3 +25,7 @@
     - name: CTF
       tags: never
       import_tasks: tasks/ctf.yml
+
+    - name: Packages
+      tags: always
+      import_tasks: tasks/packages.yml

@@ -1,0 +1,88 @@
+---
+- name: Define packages
+  set_fact:
+    packages:
+      - ack
+      - asciinema
+      - awscli
+      - bat
+      - cmatrix
+      - coreutils
+      - diff-so-fancy
+      - docker
+      - docker-compose
+      - docker-machine
+      - dos2unix
+      - exiftool
+      - fd
+      - fortune
+      - fzf
+      - gh
+      - gifsicle
+      - git
+      - glow
+      - gnupg
+      - grepcidr
+      - hcxtools
+      - htop
+      - imagemagick
+      - jq
+      - llvm
+      - lolcat
+      - lsd
+      - lua-language-server
+      - luarocks
+      - mtr
+      - neofetch
+      - nmap
+      - openvpn
+      - p7zip
+      - pfetch
+      - pipx
+      - poetry
+      - prettier
+      - pwgen
+      - pyenv
+      - pyright
+      - readline
+      - ripgrep
+      - ruby
+      - rust
+      - samba
+      - snyk/tap/snyk
+      - socat
+      - speedtest-cli
+      - sqlite
+      - stylua
+      - telnet
+      - terminal-notifier
+      - the_silver_searcher
+      - tldr
+      - tmux
+      - tree
+      - vim
+      - virtualenv
+      - wget
+      - wireshark
+      - xz
+      - yarn
+      - z
+      - zlib
+      - 1password-cli
+    mac_only:
+      - badxkarma/badxkarma/pokemonsay
+      - pinentry-mac
+      - fsouza/prettierd/prettierd
+
+- name: Install packages on apt based systems
+  become: true
+  apt:
+    name: "{{ item }}"
+  loop: "{{ packages }}"
+  when: ansible_distribution in ['Ubuntu', 'Debian', 'Kali']
+
+- name: Install packages on MacOSX
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop: "{{ packages + mac_only }}"
+  when: ansible_distribution == 'MacOSX'

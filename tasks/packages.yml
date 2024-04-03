@@ -84,6 +84,8 @@
       - stay
       - sublime-text
       - homebrew/cask-versions/visual-studio-code-insiders
+      - font-hack-nerd-font
+      - font-monaspace-nerd-font
 
 - name: Install packages on apt based systems
   become: true

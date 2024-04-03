@@ -1,0 +1,20 @@
+---
+  - name: Install zsh on Mac
+    when: ansible_distribution == 'MacOSX'
+    homebrew:
+      name: zsh
+      state: present
+
+  - name: Install zsh on Ubuntu
+    become: true
+    when: ansible_distribution in ['Ubuntu', 'Debian', 'Kali']
+    apt:
+      name: zsh
+      state: present
+    
+  - name: Set zsh as default shell
+    become: true
+    when: ansible_distribution == 'MacOSX'
+    user: 
+      name: "{{ config_user }}"
+      shell: /opt/homebrew/bin/zsh

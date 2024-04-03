@@ -4,6 +4,11 @@
     name: git
     state: present
 
+- name: Dotfiles - Ensure rsync is installed
+  package:
+    name: rsync
+    state: present
+
 - name: Dotfiles - Check if directory exists
   stat:
     path: "~/.dotfiles/"

@@ -73,6 +73,14 @@
       - badxkarma/badxkarma/pokemonsay
       - pinentry-mac
       - fsouza/prettierd/prettierd
+      - 1password
+      - copyq
+      - keka
+      - obsidian
+      - shottr
+      - stay
+      - sublime-text
+      - homebrew/cask-versions/visual-studio-code-insiders
 
 - name: Install packages on apt based systems
   become: true

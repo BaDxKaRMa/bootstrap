@@ -1,21 +1,49 @@
 ---
-  - name: Install zsh on Mac
-    when: ansible_distribution == 'MacOSX'
-    homebrew:
-      name: zsh
-      state: present
+- name: Install zsh on Mac
+  when: ansible_distribution == 'MacOSX'
+  homebrew:
+    name: zsh
+    state: present
 
-  - name: Install zsh on Ubuntu
-    become: true
-    when: ansible_distribution in ['Ubuntu', 'Debian', 'Kali']
-    apt:
-      name: zsh
-      state: present
-    
-  - name: Set zsh as default shell
-    become: true
-    when: ansible_distribution == 'MacOSX'
-    user: 
-      name: "{{ ansible_user_id }}"
-      shell: /opt/homebrew/bin/zsh
-    register: result
+- name: Install zsh on Ubuntu
+  become: true
+  when: ansible_distribution in ['Ubuntu', 'Debian', 'Kali']
+  apt:
+    name: zsh
+    state: present
+
+- name: Set zsh as default shell
+  become: true
+  when: ansible_distribution == 'MacOSX'
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /opt/homebrew/bin/zsh
+  register: result
+
+- name: Set zsh as default shell
+  become: true
+  when: ansible_distribution in ['Ubuntu', 'Debian', 'Kali']
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+
+- name: Download Oh My Zsh installation script
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install_ohmyzsh.sh
+
+- name: Run Oh My Zsh installation script
+  command: sh /tmp/install_ohmyzsh.sh --unattended
+  register: ohmyzsh_result
+  failed_when: "'FAILED' in ohmyzsh_result.stderr"
+
+- name: Install fzf-tab omz plugin
+  ansible.builtin.git:
+    repo: "https://github.com/Aloxaf/fzf-tab"
+    dest: ~/.config/zsh/plugins/fzf-tab
+
+- name: Install zsh-completions omz plugin
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/zsh-completions"
+    dest: ~/.config/zsh/plugins/zsh-completions
+

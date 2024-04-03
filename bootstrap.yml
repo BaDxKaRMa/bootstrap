@@ -7,6 +7,7 @@
     - name: Set variables
       set_fact:
         config_user: "Karma"
+      tags: always
 
     - name: Update apt cache
       apt:
@@ -31,11 +32,13 @@
 
   tasks:
     - name: ZSH
-      tags: zsh
+      tags: always
       import_tasks: tasks/zsh.yml
+
     - name: Neovim
-      tags: nvim
+      tags: always
       import_tasks: tasks/nvim.yml
+
     - name: CTF
-      tags: ctf
+      tags: never
       import_tasks: tasks/ctf.yml

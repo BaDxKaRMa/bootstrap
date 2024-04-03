@@ -16,5 +16,6 @@
     become: true
     when: ansible_distribution == 'MacOSX'
     user: 
-      name: "{{ config_user }}"
+      name: "{{ ansible_user_id }}"
       shell: /opt/homebrew/bin/zsh
+    register: result

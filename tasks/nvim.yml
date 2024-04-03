@@ -1,6 +1,6 @@
 ---
 - name: Install neovim on Ubuntu
-  become: yes
+  become: true
   apt:
     name:
       - neovim

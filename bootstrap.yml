@@ -4,6 +4,22 @@
   connection: local
 
   pre_tasks:
+    - name: Set variables
+      set_fact:
+        config_user: "Karma"
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == ['Debian', 'Ubuntu', 'Raspbian', 'Kali']
+      tags: always
+
+    - name: Update Homebrew
+      homebrew:
+        state: latest
+      when: ansible_os_family == 'Darwin'
+      tags: always
+
     - name: Display Specific Ansible Facts
       debug:
         msg:
@@ -14,6 +30,9 @@
       tags: always
 
   tasks:
+    - name: ZSH
+      tags: zsh
+      import_tasks: tasks/zsh.yml
     - name: Neovim
       tags: nvim
       import_tasks: tasks/nvim.yml

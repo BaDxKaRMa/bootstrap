@@ -81,11 +81,9 @@
       - keka
       - obsidian
       - shottr
-      - stay
-      - sublime-text
-      - homebrew/cask-versions/visual-studio-code-insiders
       - font-hack-nerd-font
       - font-monaspace-nerd-font
+      - maccy
 
 - name: Install packages on apt based systems
   become: true

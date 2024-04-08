@@ -14,14 +14,6 @@
 
 - name: Set zsh as default shell
   become: true
-  when: ansible_distribution == 'MacOSX'
-  user:
-    name: "{{ ansible_user_id }}"
-    shell: /opt/homebrew/bin/zsh
-  register: result
-
-- name: Set zsh as default shell
-  become: true
   when: ansible_distribution in ['Ubuntu', 'Debian', 'Kali']
   user:
     name: "{{ ansible_user_id }}"
@@ -36,11 +28,6 @@
   command: sh /tmp/install_ohmyzsh.sh --unattended --keep-zshrc
   register: ohmyzsh_result
   failed_when: "'FAILED' in ohmyzsh_result.stderr"
-
-- name: Install fzf-tab omz plugin
-  ansible.builtin.git:
-    repo: "https://github.com/Aloxaf/fzf-tab"
-    dest: ~/.config/zsh/plugins/fzf-tab
 
 - name: Install zsh-completions omz plugin
   ansible.builtin.git:

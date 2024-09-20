@@ -49,6 +49,11 @@
     repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     dest: ~/.config/zsh/plugins/zsh-syntax-highlighting
 
+- name: Install zsh-z omz plugin
+  ansible.builtin.git:
+    repo: "https://github.com/agkozak/zsh-z"
+    dest: ~/.config/zsh/plugins/zsh-z
+
 - name: Install autoupdate omz plugin
   ansible.builtin.git:
     repo: "https://github.com/TamCore/autoupdate-oh-my-zsh-plugins"

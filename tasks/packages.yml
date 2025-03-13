@@ -8,19 +8,15 @@
       - bat
       - cmatrix
       - coreutils
-      - diff-so-fancy
       - docker
       - docker-compose
-      - docker-machine
       - dos2unix
       - exiftool
-      - fd
       - fortune
       - fzf
       - gh
       - gifsicle
       - git
-      - glow
       - gnupg
       - grepcidr
       - hcxtools
@@ -30,33 +26,20 @@
       - llvm
       - lolcat
       - lsd
-      - lua-language-server
       - luarocks
       - mtr
       - neofetch
       - nmap
       - openvpn
       - p7zip
-      - pfetch
       - pipx
-      - poetry
-      - prettier
       - pwgen
-      - pyenv
-      - pyright
-      - readline
       - ripgrep
       - ruby
-      - rust
       - samba
-      - snyk/tap/snyk
       - socat
       - speedtest-cli
-      - sqlite
-      - stylua
       - telnet
-      - terminal-notifier
-      - the_silver_searcher
       - tldr
       - tmux
       - tree
@@ -64,12 +47,29 @@
       - virtualenv
       - wget
       - wireshark
-      - xz
       - yarn
+    mac_only:
+      - diff-so-fancy
+      - docker-machine
+      - fd
+      - glow
+      - lua-language-server
+      - pfetch
+      - poetry
+      - prettier
+      - pyenv
+      - pyright
+      - readline
+      - rust
+      - snyk/tap/snyk
+      - sqlite
+      - stylua
+      - terminal-notifier
+      - the_silver_searcher
+      - xz
       - z
       - zlib
       - 1password-cli
-    mac_only:
       - badxkarma/badxkarma/pokemonsay
       - pinentry-mac
       - fsouza/prettierd/prettierd

@@ -63,3 +63,8 @@
   ansible.builtin.git:
     repo: "https://github.com/romkatv/powerlevel10k.git"
     dest: ~/.config/zsh/themes/powerlevel10k
+
+- name: Install fzf-tab omz plugin
+  ansible.builtin.git:
+    repo: "https://github.com/Aloxaf/fzf-tab"
+    dest: ~/.config/zsh/plugins/fzf-tab
